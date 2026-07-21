@@ -1,8 +1,10 @@
 # remotion-clone-video
 
-A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) that clones any video - promo, product demo, motion-graphics piece, UI walkthrough - as a **Remotion project**, so the result is regenerable and editable as React code.
+An agent skill that clones any video - promo, product demo, motion-graphics piece, UI walkthrough - as a **Remotion project**, so the result is regenerable and editable as React code.
 
-Give Claude a video file and say *"clone this, pixel perfect"*. The skill drives an 8-phase workflow:
+Works with any agent that supports the open [`SKILL.md` format](https://skills.sh): Claude Code, Cursor, Codex, Gemini CLI, opencode, Amp, and more.
+
+Give your agent a video file and say *"clone this, pixel perfect"*. The skill drives an 8-phase workflow:
 
 1. **Probe** the source with ffprobe (dimensions, fps, duration)
 2. **Extract** a 10fps frame survey + the audio track with ffmpeg
@@ -15,13 +17,21 @@ Give Claude a video file and say *"clone this, pixel perfect"*. The skill drives
 
 ## Install
 
-With the [skills CLI](https://skills.sh) (works for Claude Code and other agents):
+With the [skills CLI](https://skills.sh) - it auto-detects your installed agents:
 
 ```bash
 npx skills add crafter-station/remotion-clone-video
 ```
 
-Or copy this folder into your skills directory manually:
+Target a specific agent:
+
+```bash
+npx skills add crafter-station/remotion-clone-video -a claude-code
+npx skills add crafter-station/remotion-clone-video -a cursor
+npx skills add crafter-station/remotion-clone-video -a codex
+```
+
+Or copy this folder into your agent's skills directory manually, e.g. for Claude Code:
 
 ```bash
 git clone https://github.com/crafter-station/remotion-clone-video.git ~/.claude/skills/remotion-clone-video

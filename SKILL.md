@@ -29,7 +29,7 @@ Record: width×height, fps, duration. The Remotion comp uses the same dimensions
 
 ## Phase 1 - Extract a frame survey
 
-Extract at 10fps into the scratchpad - one frame per 0.1s and a trivial index→time mapping (`f_N.png` → `t = N/10` s):
+Extract at 10fps into a scratch directory - one frame per 0.1s and a trivial index→time mapping (`f_N.png` → `t = N/10` s):
 
 ```bash
 mkdir -p <scratch>/frames && cd <scratch>/frames
@@ -41,7 +41,7 @@ ffmpeg -v error -i <video> -vf fps=10 -start_number 0 f_%03d.png
 
 ## Phase 2 - Build the storyboard
 
-Read frames with the Read tool in batches of 4. First pass: every ~10–15 frames (every 1–1.5s) to find scene boundaries. Second pass: read frames right around each boundary and each animation to pin down:
+View the frames as images, a few at a time (any agent file-read/vision tool). First pass: every ~10–15 frames (every 1–1.5s) to find scene boundaries. Second pass: read frames right around each boundary and each animation to pin down:
 
 - Scene list with start/end times, converted to 30fps frame numbers.
 - For each element: position (estimate x/y in source pixels), size, font class (serif/sans, weight), color.
@@ -73,7 +73,7 @@ For each element that can't be code (per the golden rule):
 
 1. Find a frame where the element is clean (not overlapped by cursor/particles, not mid-animation, over a flat background).
 2. Crop: `ffmpeg -v error -i f_NNN.png -vf "crop=W:H:X:Y" -frames:v 1 public/<name>.png`
-3. Read the crop to verify nothing is clipped or contaminated. Re-crop from a different frame if needed (cursor overlap is the common contamination).
+3. View the crop to verify nothing is clipped or contaminated. Re-crop from a different frame if needed (cursor overlap is the common contamination).
 4. If the crop will sit on a background different from its own, give it real alpha with the flood-fill script (see below). If it always sits on the identical flat color it was cropped from, skip - the seam is invisible.
 
 **Do NOT rely on `mix-blend-mode: multiply` to hide crop backgrounds** - it renders inconsistently in headless Chromium (fails on transformed images and in some stacking contexts). Real alpha always works:
@@ -120,7 +120,7 @@ Render stills at each scene's midpoint and at each tricky animation moment, in p
 for f in 75 150 250 330; do npx remotion still <CompId> out/t$f.png --frame=$f --log=error & done; wait
 ```
 
-Read each still next to the source frame at the same timestamp (still frame N at 30fps ↔ survey frame N/3 at 10fps). Compare: position, size, color, animation progress. Fix and re-render only the affected stills. Typical fixes:
+View each still next to the source frame at the same timestamp (still frame N at 30fps ↔ survey frame N/3 at 10fps). Compare: position, size, color, animation progress. Fix and re-render only the affected stills. Typical fixes:
 
 - Animation lag/lead vs original → shift interpolate ranges by measured frames.
 - Text wrapping differently → container width ±40px or fontSize ±1 (font substitution changes metrics).
