@@ -18,7 +18,7 @@ Give Claude a video file and say *"clone this, pixel perfect"*. The skill drives
 Copy this folder into your skills directory:
 
 ```bash
-git clone https://github.com/camilocbarrera/remotion-clone-video.git ~/.claude/skills/remotion-clone-video
+git clone https://github.com/crafter-station/remotion-clone-video.git ~/.claude/skills/remotion-clone-video
 ```
 
 ## Contents
