@@ -15,7 +15,13 @@ Give Claude a video file and say *"clone this, pixel perfect"*. The skill drives
 
 ## Install
 
-Copy this folder into your skills directory:
+With the [skills CLI](https://skills.sh) (works for Claude Code and other agents):
+
+```bash
+npx skills add crafter-station/remotion-clone-video
+```
+
+Or copy this folder into your skills directory manually:
 
 ```bash
 git clone https://github.com/crafter-station/remotion-clone-video.git ~/.claude/skills/remotion-clone-video
