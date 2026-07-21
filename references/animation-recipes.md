@@ -61,7 +61,7 @@ Caret as an inline block `4px × ~1.2em`, background = ink color, `backgroundCol
 })}
 ```
 
-Variant seen in many brand intros: letters appear pale gray first, then darken to ink — map `p` through gray at ~0.45 before reaching the ink color.
+Variant seen in many brand intros: letters appear pale gray first, then darken to ink - map `p` through gray at ~0.45 before reaching the ink color.
 
 ## Gradient text: shimmer and sweep reveal
 
@@ -91,7 +91,7 @@ Tune the angle (300deg ≈ reveal from bottom-right toward top-left); pair with 
 
 ## Draw-on strokes
 
-Underlines, arrows, connector lines — SVG path + dash offset:
+Underlines, arrows, connector lines - SVG path + dash offset:
 
 ```tsx
 <path d={WOBBLY_PATH} fill="none" stroke={accent} strokeWidth={11} strokeLinecap="round"
@@ -109,7 +109,7 @@ const pop = spring({frame: frame - START, fps, config: {damping: 15, mass: 0.85,
 
 ## Cursor and click
 
-Arrow cursor as SVG (never crop it — it clips):
+Arrow cursor as SVG (never crop it - it clips):
 
 ```tsx
 <path d="M 3 2 L 3 34 L 11 26.5 L 16.2 38.5 L 22 36 L 16.8 24.3 L 27 24.3 Z"
@@ -149,7 +149,7 @@ Track div (color crossfades off→on at the click frame) + knob div with `left: 
 
 ## Pixel-dissolve particles
 
-Character/logo dissolving into drifting squares. Deterministic pseudo-random (NEVER `Math.random()` — breaks frame coherence):
+Character/logo dissolving into drifting squares. Deterministic pseudo-random (NEVER `Math.random()` - breaks frame coherence):
 
 ```ts
 const rnd = (i: number, salt: number) => {
