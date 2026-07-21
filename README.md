@@ -1,5 +1,19 @@
 # remotion-clone-video
 
+```
+ ╭─◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻─╮
+                        __  _
+    _______ __ _  ___  / /_(_)__  ___
+   / __/ -_)  ' \/ _ \/ __/ / _ \/ _ \
+  /_/  \__/_/_/_/\___/\__/_/\___/_//_/
+        __                       _    __
+   ____/ /__  ___  ___ _____  __(_)__/ /__ ___
+  / __/ / _ \/ _ \/ -_)___/ |/ / / _  / -_) _ \
+  \__/_/\___/_//_/\__/    |___/_/\_,_/\__/\___/
+ ╰─◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻──◻─╯
+          video in  ▷  ░░ ▒▒ ▓▓  ▷  react out
+```
+
 An agent skill that clones any video - promo, product demo, motion-graphics piece, UI walkthrough - as a **Remotion project**, so the result is regenerable and editable as React code.
 
 Works with any agent that supports the open [`SKILL.md` format](https://skills.sh): Claude Code, Cursor, Codex, Gemini CLI, opencode, Amp, and more.
